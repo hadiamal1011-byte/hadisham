@@ -1,0 +1,827 @@
+/* ===========================
+   RESET
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins",sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+    -webkit-text-size-adjust:100%;
+    -webkit-tap-highlight-color:transparent;
+}
+
+body{
+    width:100%;
+    min-height:100svh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow:hidden;
+    background:#ffd9ec;
+    color:#444;
+    padding:20px;
+}
+
+/* ===========================
+   ФОН
+=========================== */
+
+.background{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(
+        135deg,
+        #ffd6ec,
+        #ffeaf6,
+        #fff7fc
+    );
+    background-size:300% 300%;
+    animation:bgMove 10s ease infinite;
+    z-index:-5;
+}
+
+@keyframes bgMove{
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+}
+
+/* ===========================
+   КОНТЕЙНЕР
+=========================== */
+
+.container{
+    width:100%;
+    min-height:100svh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+/* ===========================
+   КАРТОЧКА
+=========================== */
+
+.card{
+
+    width:min(370px,100%);
+    padding:28px;
+
+    border-radius:32px;
+
+    background:rgba(255,255,255,.82);
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+    0 20px 60px rgba(255,90,170,.18);
+
+    position:relative;
+
+    overflow:hidden;
+
+    animation:cardShow .6s;
+
+}
+
+@keyframes cardShow{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:none;
+}
+
+}
+
+/* ===========================
+   ЯЗЫК
+=========================== */
+
+.language{
+
+display:flex;
+
+justify-content:flex-end;
+
+gap:10px;
+
+margin-bottom:18px;
+
+}
+
+.lang{
+
+border:none;
+
+height:42px;
+
+padding:0 18px;
+
+border-radius:25px;
+
+cursor:pointer;
+
+background:white;
+
+color:#ff4f9b;
+
+font-weight:600;
+
+font-size:14px;
+
+transition:.25s;
+
+}
+
+.lang.active{
+
+background:linear-gradient(
+90deg,
+#ff5ea8,
+#d67dff
+);
+
+color:white;
+
+box-shadow:
+0 8px 20px rgba(255,90,170,.25);
+
+}
+
+/* ===========================
+   КОТИК
+=========================== */
+
+.cat{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:18px;
+
+}
+
+.cat img{
+
+width:150px;
+
+user-select:none;
+
+pointer-events:none;
+
+animation:catFloat 3s ease infinite;
+
+}
+
+@keyframes catFloat{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+/* ===========================
+   ЗАГОЛОВОК
+=========================== */
+
+#title{
+
+font-size:30px;
+
+text-align:center;
+
+font-weight:700;
+
+color:#ff4f9b;
+
+margin-bottom:12px;
+
+}
+
+#subtitle{
+
+text-align:center;
+
+font-size:17px;
+
+line-height:1.6;
+
+color:#666;
+
+margin-bottom:28px;
+
+}
+
+/* ===========================
+   КНОПКИ
+=========================== */
+
+#buttons{
+
+display:flex;
+
+flex-direction:column;
+
+gap:14px;
+
+}
+
+.btn{
+
+height:58px;
+
+border:none;
+
+border-radius:18px;
+
+cursor:pointer;
+
+font-size:17px;
+
+font-weight:600;
+
+transition:.25s;
+
+}
+
+.pink{
+
+background:linear-gradient(
+90deg,
+#ff5ea8,
+#d67dff
+);
+
+color:white;
+
+box-shadow:
+0 10px 25px rgba(255,90,170,.25);
+
+}
+
+.white{
+
+background:white;
+
+color:#ff4f9b;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.06);
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
+}
+
+.btn:active{
+
+transform:scale(.97);
+
+}
+.white{
+    background:#fff;
+    color:#ff4f9b;
+    box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+.btn:hover,
+.choice:hover{
+    transform:translateY(-3px) scale(1.02);
+}
+
+.btn:active,
+.choice:active{
+    transform:scale(.97);
+}
+
+/* ===========================
+   КАРТОЧКИ ВЫБОРА
+=========================== */
+
+.choice{
+
+    width:100%;
+    height:58px;
+
+    border:none;
+
+    border-radius:18px;
+
+    background:white;
+
+    color:#555;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-top:12px;
+
+    box-shadow:
+    0 10px 25px rgba(0,0,0,.05);
+
+    transition:.25s;
+
+}
+
+.choice.selected{
+
+    color:white;
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #ff5ea8,
+    #d777ff
+    );
+
+}
+
+/* ===========================
+   СВЕЧЕНИЕ
+=========================== */
+
+.glow{
+
+animation:glow 1s infinite alternate;
+
+}
+
+@keyframes glow{
+
+from{
+
+box-shadow:
+
+0 0 10px #cf7fff;
+
+}
+
+to{
+
+box-shadow:
+
+0 0 35px #cf7fff,
+0 0 60px #ff82d5;
+
+}
+
+}
+
+/* ===========================
+   СЕРДЕЧКИ
+=========================== */
+
+.hearts,
+.sparkles{
+
+position:fixed;
+
+inset:0;
+
+pointer-events:none;
+
+overflow:hidden;
+
+}
+
+.heart{
+
+position:absolute;
+
+bottom:-40px;
+
+animation:heartFly linear forwards;
+
+}
+
+@keyframes heartFly{
+
+0%{
+
+opacity:1;
+
+transform:
+translateY(0)
+scale(.6);
+
+}
+
+100%{
+
+opacity:0;
+
+transform:
+translateY(-120vh)
+scale(1.5)
+rotate(360deg);
+
+}
+
+}
+
+/* ===========================
+   БЛЕСТКИ
+=========================== */
+
+.sparkle{
+
+position:absolute;
+
+width:7px;
+height:7px;
+
+background:white;
+
+border-radius:50%;
+
+box-shadow:
+
+0 0 15px white,
+0 0 25px #ff8bd8;
+
+animation:spark .9s linear forwards;
+
+}
+
+@keyframes spark{
+
+from{
+
+opacity:1;
+transform:scale(.5);
+
+}
+
+to{
+
+opacity:0;
+transform:
+translateY(-60px)
+scale(2);
+
+}
+
+}
+
+/* ===========================
+   ПОЛЗУНОК
+=========================== */
+
+.rangeValue{
+
+text-align:center;
+
+font-size:34px;
+
+font-weight:700;
+
+color:#ff4f9a;
+
+margin-bottom:18px;
+
+}
+
+input[type=range]{
+
+width:100%;
+
+height:10px;
+
+border-radius:20px;
+
+appearance:none;
+
+background:
+
+linear-gradient(
+90deg,
+#ff8bc5,
+#ff5ea8
+);
+
+margin:20px 0;
+
+}
+
+input[type=range]::-webkit-slider-thumb{
+
+appearance:none;
+
+width:34px;
+
+height:34px;
+
+border-radius:50%;
+
+background:white;
+
+border:4px solid #ff5ea8;
+
+cursor:pointer;
+
+box-shadow:
+
+0 0 20px rgba(255,90,170,.3);
+
+}
+/* ===========================
+   ПЛАН УТВЕРЖДЁН
+=========================== */
+
+.plan{
+
+    margin-top:20px;
+    padding:22px;
+
+    background:#fff;
+
+    border-radius:24px;
+
+    box-shadow:
+    0 15px 40px rgba(255,90,170,.12);
+
+    animation:fadeUp .6s ease;
+
+}
+
+.plan h2{
+
+    text-align:center;
+
+    color:#ff4f9b;
+
+    margin-bottom:18px;
+
+    font-size:24px;
+
+}
+
+.plan p{
+
+    margin:14px 0;
+
+    font-size:17px;
+
+    color:#555;
+
+}
+
+/* ===========================
+   ФИНАЛЬНЫЙ ЭКРАН
+=========================== */
+
+.finalTitle{
+
+    font-size:36px;
+
+    text-align:center;
+
+    color:#ff4f9b;
+
+    margin-bottom:15px;
+
+}
+
+.finalText{
+
+    text-align:center;
+
+    line-height:1.8;
+
+    font-size:18px;
+
+    color:#666;
+
+    margin-bottom:20px;
+
+}
+
+/* ===========================
+   АНИМАЦИИ
+=========================== */
+
+.fade{
+
+    animation:fade .4s ease;
+
+}
+
+@keyframes fade{
+
+from{
+
+opacity:0;
+
+}
+
+to{
+
+opacity:1;
+
+}
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(25px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+.pop{
+
+animation:pop .35s ease;
+}
+
+@keyframes pop{
+
+0%{
+
+transform:scale(.8);
+
+}
+
+60%{
+
+transform:scale(1.05);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+/* ===========================
+   СКРОЛЛ
+=========================== */
+
+::-webkit-scrollbar{
+
+width:6px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#ff89c7;
+
+border-radius:20px;
+
+}
+
+/* ===========================
+   iPhone 15
+=========================== */
+
+@media (max-width:430px){
+
+body{
+
+padding:
+
+max(18px,env(safe-area-inset-top))
+18px
+max(18px,env(safe-area-inset-bottom));
+
+}
+
+.card{
+
+width:100%;
+
+max-width:360px;
+
+padding:24px;
+
+border-radius:28px;
+
+}
+
+.cat img{
+
+width:135px;
+
+}
+
+#title{
+
+font-size:28px;
+
+}
+
+#subtitle{
+
+font-size:16px;
+
+}
+
+.btn{
+
+height:56px;
+
+font-size:16px;
+
+}
+
+.choice{
+
+height:56px;
+
+font-size:16px;
+
+}
+
+.plan h2{
+
+font-size:22px;
+
+}
+
+.plan p{
+
+font-size:16px;
+
+}
+
+}
+
+/* ===========================
+   ПЛАВНЫЕ ПЕРЕХОДЫ
+=========================== */
+
+button,
+.choice,
+.lang,
+.card{
+
+transition:
+all .3s ease;
+
+}
+
+img{
+
+user-select:none;
+
+-webkit-user-drag:none;
+
+}
+
+.hidden{
+
+display:none !important;
+
+}
